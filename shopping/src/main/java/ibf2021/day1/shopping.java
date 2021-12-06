@@ -11,12 +11,13 @@ public class shopping {
         HandleCommands handler = new HandleCommands();
 
         
-        System.out.println("Welcome to your cart");
+       
         System.out.println(" add <item>");
         System.out.println(" delete <position of item>");
         System.out.println(" list");
         System.out.println(" exit");
-       
+        System.out.println("Welcome to your cart");
+        ////test
         Scanner scan = new Scanner(System.in);
         String command = scan.next();
         String arguments = scan.nextLine();
