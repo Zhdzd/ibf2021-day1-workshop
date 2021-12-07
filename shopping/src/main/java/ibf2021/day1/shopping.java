@@ -22,22 +22,34 @@ public class shopping {
         String command = scan.next();
         String arguments = scan.nextLine();
         //
-       if(!"add".equals(command) && !"delete".equals(command)&& // continue here          
-        while(!com.equals("list") && 
-            !com.equals("add")&&
-            !com.equals("delete")){
-            System.out.println("Please use only list or add");
-            com = scan.next();
+       if(!"add".equals(command) && !"delete".equals(command)&&  //if         
+            !"list".equals(command) && !"exit".equals(command)) {
+            System.out.println("Invalid command, program will exit.");
+             scan.close();
+            return;
         }
-        if(com.equals("list")){
-            System.out.println("List is "+ cart);
-        }
-        if(com.startsWith("add")){
-            String[] strArray = com.trim().split(" ");
-            if(strArray.length < 2){
-                System.out.println("You need to add some item.");}
-        }
-*/
-        }
-}
+        while (!"exit".equals(command)) {
 
+            if ("add".equals(command)) {
+                handler.handleAdd(command, arguments, scan);
+                System.out.println("-- Item(s) added --");
+            }
+
+            if ("delete".equals(command)) {
+                handler.handleDelete(command, arguments, scan);
+                System.out.println("-- Item removed --");
+            }
+            
+            if ("list".equals(command)) {
+                handler.handleList(command);
+                System.out.println("-- End of list --");
+            }
+
+            command = scan.next();
+            arguments = scan.nextLine();
+        }
+       
+            scan.close();
+            System.out.println("Program has ended.");
+    }
+}

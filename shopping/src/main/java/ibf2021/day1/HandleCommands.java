@@ -17,7 +17,7 @@ public void handleAdd(String command, String arguments, Scanner scan){
     while ("add".equals(command)){
         String [] strArray = arguments.trim().split(",");
 
-        while ("".equals(arguments.trim())) {
+        while ("".equals(arguments.trim())) { 
             System.out.println("Please add an item or items separated with a coma");
             command = scan.next();
             arguments = scan.nextLine();
